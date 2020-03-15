@@ -55,7 +55,7 @@ void MainWindow::ProgramInit()
   commandLabel->setVisible(false);
   commandLabel->setText(commText);
   //Initialize the settings file for this user
-  settings = new QSettings("TrueOS", "qsudo");
+  settings = new QSettings("TrueOS", "qdoas");
   //if(!settings->contains("qsudosamplevalue")){ settings->setValue("qsudosamplevalue","-1"); }
   //qDebug() << "Settings File:" << settings->fileName() << commText;
   //Check that there is not a dialog already open for this command
@@ -124,9 +124,9 @@ void MainWindow::testPass()
 
 void MainWindow::startSudo()
 {
-  //qDebug() << "Start Sudo:";
+  //qDebug() << "Start doas:";
   setVisible(false);
-  QString program = "sudo";
+  QString program = "doas";
   QStringList arguments;
   arguments << "-S";
   arguments << args; //saved input arguments
@@ -242,13 +242,13 @@ QStringList MainWindow::runQuickCmd(QString cmd){
 }
 
 bool MainWindow::checkSudoCache(){
-  int check = QProcess::execute("sudo", QStringList() << "-n" << "-v" );
+  int check = QProcess::execute("doas", QStringList() << "-n" << "-v" );
   if ( check != 0 )
      return false;
 
   // We have a cached credential! Lets bypass the entire GUI
   setVisible(false);
-  QString program = "sudo";
+  QString program = "doas";
   QStringList arguments;
   arguments << args; //saved input arguments
 
