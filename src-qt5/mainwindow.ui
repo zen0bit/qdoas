@@ -20,7 +20,7 @@
    <string>Requesting System Permissions</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="qsudo.qrc">
+   <iconset resource="qdoas.qrc">
     <normaloff>:/lock.png</normaloff>:/lock.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -191,7 +191,7 @@ spacing: 1px;
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="qsudo.qrc"/>
+  <include location="qdoas.qrc"/>
  </resources>
  <connections/>
 </ui>
