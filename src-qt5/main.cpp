@@ -22,17 +22,17 @@ int main(int argc, char *argv[])
     }
     //Test that the user needs to provide a password first
     QStringList args; for(int i=1; i<argc; i++){ args << argv[i]; }
-    int ret = QProcess::execute("sudo", QStringList() << "-n" << "-S"  << args);
+    int ret = QProcess::execute("doas", QStringList() << "-n" << "-S"  << args);
     if(ret==0){ return 0; } //all finished. No password needed
 
     QTranslator translator;
     QLocale mylocale;
     QString langCode = mylocale.name();
-    if ( ! QFile::exists(PREFIX + "/share/trueos/i18n/qsudo_" + langCode + ".qm" ) )
+    if ( ! QFile::exists(PREFIX + "/share/trueos/i18n/qdoas_" + langCode + ".qm" ) )
         langCode.truncate(langCode.indexOf("_"));
 
-    if ( QFile::exists(PREFIX + "/share/trueos/i18n/qsudo_" + langCode + ".qm" ) ) {
-      translator.load( QString("qsudo_") + langCode, PREFIX + "/share/trueos/i18n/" );
+    if ( QFile::exists(PREFIX + "/share/trueos/i18n/qdoas_" + langCode + ".qm" ) ) {
+      translator.load( QString("qdoas_") + langCode, PREFIX + "/share/trueos/i18n/" );
       a.installTranslator( &translator );
     }
     QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
