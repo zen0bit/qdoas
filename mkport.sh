@@ -3,8 +3,8 @@
 # from a checked out git repo
 
 # Set the port
-port="sysutils/qsudo"
-dfile="qsudo"
+port="sysutils/qdoas"
+dfile="qdoas"
 
 massage_subdir() {
   cd "$1"
